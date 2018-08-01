@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,9 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using graduate.Resources;
 
 namespace graduate
 {
+    // 180801 15:30
     public partial class Form1 : Form
     {
         public Form1()
@@ -21,44 +24,44 @@ namespace graduate
 
         private void Form1_Load(object sender, EventArgs e) // 메인폼을 로드할 때, 로그인팝업을 먼저 띄움
         {
-            loginPopup login = new loginPopup();
-            DialogResult DialogResult = login.ShowDialog();
-            if (DialogResult == DialogResult.OK)
+            string[] lockPW = File.ReadAllLines(@"..\..\lock.txt");
+            // 잠금설정 O 이면, unlockPopup출력
+            // 잠금설정 X 이면, unlockPopup출력하지 않음
+            if (lockPW[0].Substring(0, 1) == "O")
             {
-                USER user = new USER(login.ID, login.Password);
-                userName.Text = user.getId();
-                userInfo.Text = "10 Gb / 100 Gb"; // Cloud 가용 용량 표시
-                MessageBox.Show("ID = " + login.ID + "\n" + "PW = " + login.Password);
-            }
-            else
-            {
-                this.Close(); // 생성자에서 이 메소드를 호출하면 Exception 발생
-            }
-        }
+                string unlock_key;
+                while (true)
+                {
+                    unlockPopup unlock = new unlockPopup();
+                    DialogResult DialogResult = unlock.ShowDialog();
+                    unlock_key = lockPW[0].Substring(1); // unlock_key는 저장된 비밀번호
 
-        /*------------유저 오브젝트------------*/
-        // DB 연동하기 이전 임시 객체
-        public class USER
-        {
-            string ID;
-            string Password;
-            string Name = "";
-            public string getName() { return this.Name; }
-            public string getId() { return this.ID; }
-            public string getPassword() { return this.Password; }
-            public USER(string str1, string str2)
-            {
-                ID = str1;
-                Password = str2;
+                    if (DialogResult == DialogResult.OK)
+                    {
+                        if (unlock.Password == unlock_key) // 입력된 비밀번호와 저장된 비밀번호가 일치
+                        {
+                            MessageBox.Show("Password Correct! \n CLOUD is Unlocked! \n");
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password Uncorrect! \n Please re-enter your password. \n");
+                        }
+                    }
+                    else
+                    {
+                        this.Close(); // 생성자에서 이 메소드를 호출하면 Exception 발생
+                    }
+                }
             }
-            public USER(string str1, string str2, string str3)
-            {
-                ID = str1;
-                Password = str2;
-                Name = str3;
-            }
+            // fileArray에 fileAdd() 테스트 >> 성공
+            USER user1 = new USER("SDH","1234","donghwa");
+            userFile file1 = new userFile("testName", "mp3", "googleDrive", "indexA");
+            user1.fileAdd(file1);   
+           // MessageBox.Show(user1.fileList[0].getFileName() + "\n" + user1.fileList[0].getFileType());
+            
         }
-
+   
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -90,21 +93,24 @@ namespace graduate
         /*--------------------스트립 메뉴 : 파일--------------------*/
         /*--------------------------------------------------------*/
 
-        private void logoutBtnClick(object sender, EventArgs e) // 로그아웃 버튼 클릭
-        {
-
-        }
+      
         private void viewSwitchBtnClick(object sender, EventArgs e) // 뷰전환 버튼 클릭 시, 뷰 전환 (detail <->LargeIcon)
         {
             if(this.listView1.View == View.Details)
                 this.listView1.View = View.LargeIcon;
             else
                 this.listView1.View = View.Details;
+
+            if (this.btnViewSwitch.ImageIndex == 4)
+                this.btnViewSwitch.ImageIndex = 5;
+            else
+                this.btnViewSwitch.ImageIndex = 4;
         }
 
         private void cloudConnectBtnClick(object sender, EventArgs e) // 클라우드 연동 버튼 클릭
         {
-
+            cloudConnect cloud = new cloudConnect();
+            cloud.ShowDialog();
         }
 
         private void cloudSyncBtnClick(object sender, EventArgs e) // 클라우드 동기화 버튼 클릭
@@ -115,73 +121,35 @@ namespace graduate
         /*--------------------단축 버튼 메뉴--------------------*/
         /*------------------------------------------------------*/
 
+
         /*------------------------------------------------------*/
         /*--------------------스트립 메뉴 : 유저--------------------*/
 
-        private void 회원가입ToolStripMenuItem_Click(object sender, EventArgs e) // 스트립메뉴 회원가입
+        private void lockSettingClick(object sender, EventArgs e)
         {
-            joinPopup join = new joinPopup();
-            join.ShowDialog();  // 회원가입 팝업
+            lockSetting lockSet = new lockSetting();
+            lockSet.ShowDialog();  // 비밀번호 세팅 팝업
         }
-
-        private void 회원정보ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void 로그아웃ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void 회원탈퇴ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void 로그인ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            loginPopup login = new loginPopup();
-            DialogResult DialogResult = login.ShowDialog();
-            if (DialogResult == DialogResult.OK)
-            {
-                USER user = new USER(login.ID, login.Password);
-                userName.Text = user.getId();
-                userInfo.Text = "10 Gb / 100 Gb"; // Cloud 가용 용량 표시 예시
-                MessageBox.Show("ID = " + login.ID + "\n" + "PW = " + login.Password);
-            }
-            else
-            {
-                this.Close(); // 생성자에서 이 메소드를 호출하면 Exception 발생
-            }
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         /*--------------------스트립 메뉴 : 유저--------------------*/
         /*------------------------------------------------------*/
+
 
         /*----------------------------------------*/
         /*----------------파일탐색기---------------*/
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        // 지금은 window 파일 탐색기로 코드짜여 있는데,
+        // 파일탐색기 코드를, USER.FILE의 구조에 따라서 나타내도록 바꿔야해요
+           
         private void PopulateTreeView()
         {
             TreeNode rootNode;
-            DirectoryInfo info = new DirectoryInfo(@"../..");
+            DirectoryInfo info = new DirectoryInfo(@"../../file_address");
             // 현재 코드는 프로젝트 graduate 디렉토리 리스트를 보여줌
-            // 디렉토리 안에 통합 클라우드에 대한 "directory - file" 생성해서 참조하면 될거같아요
-            // ex) 사용자가 지정해서 생성한 디렉토리들과 파일이 저장되어있는 각 클라우드의 원 위치(링크 파일)
+
+            // graduate의 하위폴더인 file_address로 탐색
+            // > DirectoryInfo info = new DirectoryInfo(@"../../file_address");
+
             if (info.Exists)
             {
                 rootNode = new TreeNode(info.Name);
@@ -251,6 +219,9 @@ namespace graduate
             e.Node.ImageIndex = 2;
             e.Node.SelectedImageIndex = 2;
         }
+
+    
+
 
         /*---------------파일탐색기---------------*/
         /*---------------------------------------*/

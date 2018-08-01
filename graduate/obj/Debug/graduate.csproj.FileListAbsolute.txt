@@ -8,5 +8,7 @@ C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.csproj.Generate
 C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.csproj.CoreCompileInputs.cache
 C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.exe
 C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.pdb
-C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.loginPopup.resources
-C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.joinPopup.resources
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.lockSetting.resources
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.unlockPopup.resources
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.cloudConnect.resources
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.Resources.cloudConnectAuth.resources

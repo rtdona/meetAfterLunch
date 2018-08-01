@@ -1,0 +1,12 @@
+C:\Users\remna\source\repos\graduate\graduate\bin\Debug\graduate.exe.config
+C:\Users\remna\source\repos\graduate\graduate\bin\Debug\graduate.exe
+C:\Users\remna\source\repos\graduate\graduate\bin\Debug\graduate.pdb
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.csprojAssemblyReference.cache
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.Form1.resources
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.Properties.Resources.resources
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.csproj.GenerateResource.cache
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.csproj.CoreCompileInputs.cache
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.exe
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.pdb
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.loginPopup.resources
+C:\Users\remna\source\repos\graduate\graduate\obj\Debug\graduate.joinPopup.resources

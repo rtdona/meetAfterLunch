@@ -31,15 +31,15 @@ namespace graduate
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "test",
             "test"}, 1);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnViewSwitch = new System.Windows.Forms.Button();
             this.btnCloudSync = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.btnFileSearch = new System.Windows.Forms.Button();
             this.btnFileDownload = new System.Windows.Forms.Button();
             this.btnFileUpload = new System.Windows.Forms.Button();
@@ -61,14 +61,12 @@ namespace graduate
             this.트리뷰ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.리스트뷰파일탐색기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.도움말ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.버전정보ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.개발자정보ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.버전정보ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.제작자ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.유저ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.로그인ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.로그아웃ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.회원가입ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.회원정보ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.회원탈퇴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.잠금비밀번호설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -77,14 +75,14 @@ namespace graduate
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.userName = new System.Windows.Forms.Label();
-            this.userInfo = new System.Windows.Forms.Label();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.userPhoto = new System.Windows.Forms.PictureBox();
             this.유저ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.테스트ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnViewSwitch = new System.Windows.Forms.Button();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.userInfo = new System.Windows.Forms.Label();
+            this.userName = new System.Windows.Forms.Label();
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -113,73 +111,78 @@ namespace graduate
             // 
             this.panel1.Controls.Add(this.btnViewSwitch);
             this.panel1.Controls.Add(this.btnCloudSync);
-            this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.btnFileSearch);
             this.panel1.Controls.Add(this.btnFileDownload);
             this.panel1.Controls.Add(this.btnFileUpload);
             this.panel1.Controls.Add(this.btnCloudConnect);
-            this.panel1.Location = new System.Drawing.Point(213, 31);
+            this.panel1.Location = new System.Drawing.Point(210, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(549, 73);
+            this.panel1.Size = new System.Drawing.Size(427, 73);
             this.panel1.TabIndex = 2;
+            // 
+            // btnViewSwitch
+            // 
+            this.btnViewSwitch.ImageIndex = 5;
+            this.btnViewSwitch.ImageList = this.imageList3;
+            this.btnViewSwitch.Location = new System.Drawing.Point(354, 3);
+            this.btnViewSwitch.Name = "btnViewSwitch";
+            this.btnViewSwitch.Size = new System.Drawing.Size(64, 66);
+            this.btnViewSwitch.TabIndex = 6;
+            this.btnViewSwitch.UseVisualStyleBackColor = true;
+            this.btnViewSwitch.Click += new System.EventHandler(this.viewSwitchBtnClick);
             // 
             // btnCloudSync
             // 
+            this.btnCloudSync.ImageKey = "cloud-sync.png";
+            this.btnCloudSync.ImageList = this.imageList3;
             this.btnCloudSync.Location = new System.Drawing.Point(74, 4);
             this.btnCloudSync.Name = "btnCloudSync";
             this.btnCloudSync.Size = new System.Drawing.Size(64, 66);
             this.btnCloudSync.TabIndex = 5;
-            this.btnCloudSync.Text = "클라우드 동기화";
             this.btnCloudSync.UseVisualStyleBackColor = true;
             this.btnCloudSync.Click += new System.EventHandler(this.cloudSyncBtnClick);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new System.Drawing.Point(482, 3);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(64, 66);
-            this.btnLogout.TabIndex = 4;
-            this.btnLogout.Text = "로그 아웃";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.logoutBtnClick);
-            // 
             // btnFileSearch
             // 
+            this.btnFileSearch.ImageKey = "search.png";
+            this.btnFileSearch.ImageList = this.imageList3;
             this.btnFileSearch.Location = new System.Drawing.Point(284, 3);
             this.btnFileSearch.Name = "btnFileSearch";
             this.btnFileSearch.Size = new System.Drawing.Size(64, 66);
             this.btnFileSearch.TabIndex = 3;
-            this.btnFileSearch.Text = "파일 검색";
             this.btnFileSearch.UseVisualStyleBackColor = true;
             this.btnFileSearch.Click += new System.EventHandler(this.fileSearchBtnClick);
             // 
             // btnFileDownload
             // 
+            this.btnFileDownload.ImageKey = "download-from-cloud.png";
+            this.btnFileDownload.ImageList = this.imageList3;
             this.btnFileDownload.Location = new System.Drawing.Point(214, 3);
             this.btnFileDownload.Name = "btnFileDownload";
             this.btnFileDownload.Size = new System.Drawing.Size(64, 66);
             this.btnFileDownload.TabIndex = 2;
-            this.btnFileDownload.Text = "파일 다운로드";
             this.btnFileDownload.UseVisualStyleBackColor = true;
             this.btnFileDownload.Click += new System.EventHandler(this.fileDownloadBtnClick);
             // 
             // btnFileUpload
             // 
+            this.btnFileUpload.ImageKey = "cloud-upload.png";
+            this.btnFileUpload.ImageList = this.imageList3;
             this.btnFileUpload.Location = new System.Drawing.Point(144, 4);
             this.btnFileUpload.Name = "btnFileUpload";
             this.btnFileUpload.Size = new System.Drawing.Size(64, 66);
             this.btnFileUpload.TabIndex = 1;
-            this.btnFileUpload.Text = "파일 업로드";
             this.btnFileUpload.UseVisualStyleBackColor = true;
             this.btnFileUpload.Click += new System.EventHandler(this.fileUploadBtnClick);
             // 
             // btnCloudConnect
             // 
+            this.btnCloudConnect.ImageKey = "cloud_connect.png";
+            this.btnCloudConnect.ImageList = this.imageList3;
             this.btnCloudConnect.Location = new System.Drawing.Point(4, 4);
             this.btnCloudConnect.Name = "btnCloudConnect";
             this.btnCloudConnect.Size = new System.Drawing.Size(64, 66);
             this.btnCloudConnect.TabIndex = 0;
-            this.btnCloudConnect.Text = "클라우드연동";
             this.btnCloudConnect.UseVisualStyleBackColor = true;
             this.btnCloudConnect.Click += new System.EventHandler(this.cloudConnectBtnClick);
             // 
@@ -196,19 +199,19 @@ namespace graduate
             // 파일업로드ToolStripMenuItem
             // 
             this.파일업로드ToolStripMenuItem.Name = "파일업로드ToolStripMenuItem";
-            this.파일업로드ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.파일업로드ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.파일업로드ToolStripMenuItem.Text = "파일 업로드";
             // 
             // 파일다운로ToolStripMenuItem
             // 
             this.파일다운로ToolStripMenuItem.Name = "파일다운로ToolStripMenuItem";
-            this.파일다운로ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.파일다운로ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.파일다운로ToolStripMenuItem.Text = "파일 다운로드";
             // 
             // 파일열기ToolStripMenuItem
             // 
             this.파일열기ToolStripMenuItem.Name = "파일열기ToolStripMenuItem";
-            this.파일열기ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.파일열기ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.파일열기ToolStripMenuItem.Text = "파일 열기";
             // 
             // 편집ToolStripMenuItem
@@ -223,13 +226,13 @@ namespace graduate
             // 파일명검색ToolStripMenuItem
             // 
             this.파일명검색ToolStripMenuItem.Name = "파일명검색ToolStripMenuItem";
-            this.파일명검색ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.파일명검색ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.파일명검색ToolStripMenuItem.Text = "파일명 검색";
             // 
             // 파일내용검색ToolStripMenuItem
             // 
             this.파일내용검색ToolStripMenuItem.Name = "파일내용검색ToolStripMenuItem";
-            this.파일내용검색ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.파일내용검색ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.파일내용검색ToolStripMenuItem.Text = "파일내용 검색";
             // 
             // 설정ToolStripMenuItem
@@ -295,9 +298,24 @@ namespace graduate
             // 
             // 도움말ToolStripMenuItem
             // 
+            this.도움말ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.버전정보ToolStripMenuItem1,
+            this.개발자정보ToolStripMenuItem});
             this.도움말ToolStripMenuItem.Name = "도움말ToolStripMenuItem";
             this.도움말ToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.도움말ToolStripMenuItem.Text = "도움말";
+            // 
+            // 버전정보ToolStripMenuItem1
+            // 
+            this.버전정보ToolStripMenuItem1.Name = "버전정보ToolStripMenuItem1";
+            this.버전정보ToolStripMenuItem1.Size = new System.Drawing.Size(164, 26);
+            this.버전정보ToolStripMenuItem1.Text = "버전 정보";
+            // 
+            // 개발자정보ToolStripMenuItem
+            // 
+            this.개발자정보ToolStripMenuItem.Name = "개발자정보ToolStripMenuItem";
+            this.개발자정보ToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.개발자정보ToolStripMenuItem.Text = "개발자 정보";
             // 
             // 버전정보ToolStripMenuItem
             // 
@@ -314,49 +332,17 @@ namespace graduate
             // 유저ToolStripMenuItem
             // 
             this.유저ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.로그인ToolStripMenuItem,
-            this.로그아웃ToolStripMenuItem,
-            this.회원가입ToolStripMenuItem,
-            this.회원정보ToolStripMenuItem,
-            this.회원탈퇴ToolStripMenuItem});
+            this.잠금비밀번호설정ToolStripMenuItem});
             this.유저ToolStripMenuItem.Name = "유저ToolStripMenuItem";
             this.유저ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.유저ToolStripMenuItem.Text = "유저";
             // 
-            // 로그인ToolStripMenuItem
+            // 잠금비밀번호설정ToolStripMenuItem
             // 
-            this.로그인ToolStripMenuItem.Name = "로그인ToolStripMenuItem";
-            this.로그인ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.로그인ToolStripMenuItem.Text = "로그인";
-            this.로그인ToolStripMenuItem.Click += new System.EventHandler(this.로그인ToolStripMenuItem_Click);
-            // 
-            // 로그아웃ToolStripMenuItem
-            // 
-            this.로그아웃ToolStripMenuItem.Name = "로그아웃ToolStripMenuItem";
-            this.로그아웃ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.로그아웃ToolStripMenuItem.Text = "로그아웃";
-            this.로그아웃ToolStripMenuItem.Click += new System.EventHandler(this.로그아웃ToolStripMenuItem_Click);
-            // 
-            // 회원가입ToolStripMenuItem
-            // 
-            this.회원가입ToolStripMenuItem.Name = "회원가입ToolStripMenuItem";
-            this.회원가입ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.회원가입ToolStripMenuItem.Text = "회원가입";
-            this.회원가입ToolStripMenuItem.Click += new System.EventHandler(this.회원가입ToolStripMenuItem_Click);
-            // 
-            // 회원정보ToolStripMenuItem
-            // 
-            this.회원정보ToolStripMenuItem.Name = "회원정보ToolStripMenuItem";
-            this.회원정보ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.회원정보ToolStripMenuItem.Text = "회원정보";
-            this.회원정보ToolStripMenuItem.Click += new System.EventHandler(this.회원정보ToolStripMenuItem_Click);
-            // 
-            // 회원탈퇴ToolStripMenuItem
-            // 
-            this.회원탈퇴ToolStripMenuItem.Name = "회원탈퇴ToolStripMenuItem";
-            this.회원탈퇴ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.회원탈퇴ToolStripMenuItem.Text = "회원탈퇴";
-            this.회원탈퇴ToolStripMenuItem.Click += new System.EventHandler(this.회원탈퇴ToolStripMenuItem_Click);
+            this.잠금비밀번호설정ToolStripMenuItem.Name = "잠금비밀번호설정ToolStripMenuItem";
+            this.잠금비밀번호설정ToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.잠금비밀번호설정ToolStripMenuItem.Text = "잠금 비밀번호 설정";
+            this.잠금비밀번호설정ToolStripMenuItem.Click += new System.EventHandler(this.lockSettingClick);
             // 
             // splitContainer1
             // 
@@ -386,7 +372,6 @@ namespace graduate
             this.treeView1.Size = new System.Drawing.Size(366, 426);
             this.treeView1.TabIndex = 3;
             this.treeView1.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeAfterExpand);
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
             // imageList1
@@ -416,9 +401,9 @@ namespace graduate
             this.columnHeader3});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Enabled = false;
-            listViewItem2.Tag = "dir";
+            listViewItem1.Tag = "dir";
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView1.LargeImageList = this.imageList2;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
@@ -427,42 +412,29 @@ namespace graduate
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 223;
+            this.columnHeader1.Width = 134;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Type";
-            this.columnHeader2.Width = 73;
+            this.columnHeader2.Width = 53;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Last Modified";
-            this.columnHeader3.Width = 144;
+            this.columnHeader3.Width = 118;
             // 
-            // userName
+            // imageList2
             // 
-            this.userName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userName.Location = new System.Drawing.Point(88, 32);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(119, 32);
-            this.userName.TabIndex = 5;
-            this.userName.Text = "userName";
-            this.userName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // userInfo
-            // 
-            this.userInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userInfo.Location = new System.Drawing.Point(88, 65);
-            this.userInfo.Name = "userInfo";
-            this.userInfo.Size = new System.Drawing.Size(119, 36);
-            this.userInfo.TabIndex = 6;
-            this.userInfo.Text = "userInfo";
-            this.userInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "cloud.png");
+            this.imageList2.Images.SetKeyName(1, "folder.png");
+            this.imageList2.Images.SetKeyName(2, "folderOpened.png");
             // 
             // userPhoto
             // 
@@ -499,23 +471,38 @@ namespace graduate
             this.테스트ToolStripMenuItem.Name = "테스트ToolStripMenuItem";
             this.테스트ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // btnViewSwitch
+            // userInfo
             // 
-            this.btnViewSwitch.Location = new System.Drawing.Point(354, 3);
-            this.btnViewSwitch.Name = "btnViewSwitch";
-            this.btnViewSwitch.Size = new System.Drawing.Size(64, 66);
-            this.btnViewSwitch.TabIndex = 6;
-            this.btnViewSwitch.Text = "뷰전환";
-            this.btnViewSwitch.UseVisualStyleBackColor = true;
-            this.btnViewSwitch.Click += new System.EventHandler(this.viewSwitchBtnClick);
+            this.userInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userInfo.Location = new System.Drawing.Point(85, 66);
+            this.userInfo.Name = "userInfo";
+            this.userInfo.Size = new System.Drawing.Size(119, 36);
+            this.userInfo.TabIndex = 6;
+            this.userInfo.Text = "userInfo";
+            this.userInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // imageList2
+            // userName
             // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "cloud.png");
-            this.imageList2.Images.SetKeyName(1, "folder.png");
-            this.imageList2.Images.SetKeyName(2, "folderOpened.png");
+            this.userName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userName.Location = new System.Drawing.Point(85, 33);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(119, 32);
+            this.userName.TabIndex = 5;
+            this.userName.Text = "userName";
+            this.userName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "cloud_connect.png");
+            this.imageList3.Images.SetKeyName(1, "cloud-sync.png");
+            this.imageList3.Images.SetKeyName(2, "cloud-upload.png");
+            this.imageList3.Images.SetKeyName(3, "download-from-cloud.png");
+            this.imageList3.Images.SetKeyName(4, "folder.png");
+            this.imageList3.Images.SetKeyName(5, "list.png");
+            this.imageList3.Images.SetKeyName(6, "root-directory.png");
+            this.imageList3.Images.SetKeyName(7, "search.png");
             // 
             // Form1
             // 
@@ -574,12 +561,6 @@ namespace graduate
         private System.Windows.Forms.ToolStripMenuItem 버전정보ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 제작자ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 유저ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 로그인ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 로그아웃ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 회원정보ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 회원가입ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 회원탈퇴ToolStripMenuItem;
-        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnCloudSync;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
@@ -590,13 +571,17 @@ namespace graduate
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private PictureBox userPhoto;
-        private Label userName;
-        private Label userInfo;
         private ToolStripMenuItem 유저ToolStripMenuItem1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem 테스트ToolStripMenuItem;
         private Button btnViewSwitch;
         private ImageList imageList2;
+        private ToolStripMenuItem 버전정보ToolStripMenuItem1;
+        private ToolStripMenuItem 개발자정보ToolStripMenuItem;
+        private ToolStripMenuItem 잠금비밀번호설정ToolStripMenuItem;
+        private Label userInfo;
+        private Label userName;
+        private ImageList imageList3;
 
         public object ToolStripMenuItem { get; private set; }
     }
