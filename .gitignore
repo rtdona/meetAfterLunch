@@ -3,3 +3,13 @@
 ################################################################################
 
 /Unamed/obj/Release
+/Unamed/obj/Debug
+/Unamed/bin/Debug
+/packages
+/.vs/graduate/DesignTimeBuild/.dtbcache
+/.vs/graduate/v15/Server/sqlite3
+/.vs/graduate/v15
+/.vs/meetAfterLunch/v15
+/.vs
+/graduate/obj/Debug
+/graduate/obj/Release
