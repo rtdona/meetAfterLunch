@@ -1,0 +1,15 @@
+﻿################################################################################
+# 이 .gitignore 파일은 Microsoft(R) Visual Studio에서 자동으로 만들어졌습니다.
+################################################################################
+
+/Unamed/obj/Release
+/Unamed/obj/Debug
+/Unamed/bin/Debug
+/packages
+/.vs/graduate/DesignTimeBuild/.dtbcache
+/.vs/graduate/v15/Server/sqlite3
+/.vs/graduate/v15
+/.vs/meetAfterLunch/v15
+/.vs
+/graduate/obj/Debug
+/graduate/obj/Release
