@@ -40,5 +40,37 @@ namespace graduate
             cloudConnectAuth auth = new cloudConnectAuth();
             auth.ShowDialog();
         }
+
+        private void setGoogleDriveOn(object sender, EventArgs e)
+        {
+            this.googledriveStatus.Text = "연동 중..";
+        }
+        private void setGoogleDriveOff(object sender, EventArgs e)
+        {
+            this.googledriveStatus.Text = "연동 안됨";
+        }
+
+        private void setDropBoxOn(object sender, EventArgs e)
+        {
+            this.dropboxStatus.Text = "연동 중..";
+        }
+        private void setDropBoxOff(object sender, EventArgs e)
+        {
+            this.dropboxStatus.Text = "연동 안됨";
+        }
+
+        private void setOnedriveOn(object sender, EventArgs e)
+        {
+            this.onedriveStatus.Text = "연동 중..";
+        }
+        private void setOnedriveOff(object sender, EventArgs e)
+        {
+            this.onedriveStatus.Text = "연동 안됨";
+        }
+
+        // 연동 되었을 때, 용량 표시
+        //
+        //
+        //
     }
 }

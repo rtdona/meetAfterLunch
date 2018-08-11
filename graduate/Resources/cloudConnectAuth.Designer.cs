@@ -28,84 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.authID = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnCallKey = new System.Windows.Forms.Button();
+            this.textAuthCode = new System.Windows.Forms.TextBox();
             this.btnAuthCancel = new System.Windows.Forms.Button();
             this.btnAuthOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Consolas", 12F);
-            this.label1.Location = new System.Drawing.Point(12, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Consolas", 12F);
-            this.label2.Location = new System.Drawing.Point(12, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Password : ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // authID
-            // 
-            this.authID.Font = new System.Drawing.Font("굴림", 15F);
-            this.authID.Location = new System.Drawing.Point(146, 23);
-            this.authID.Name = "authID";
-            this.authID.Size = new System.Drawing.Size(152, 36);
-            this.authID.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 15F);
-            this.textBox1.Location = new System.Drawing.Point(146, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 36);
-            this.textBox1.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Consolas", 12F);
-            this.label3.Location = new System.Drawing.Point(23, 174);
+            this.label3.Location = new System.Drawing.Point(3, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 23);
+            this.label3.Size = new System.Drawing.Size(109, 23);
             this.label3.TabIndex = 4;
-            this.label3.Text = "인증 Key : ";
+            this.label3.Text = "인증 코드";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // textAuthCode
             // 
-            this.textBox2.Font = new System.Drawing.Font("굴림", 15F);
-            this.textBox2.Location = new System.Drawing.Point(146, 168);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 36);
-            this.textBox2.TabIndex = 5;
-            // 
-            // btnCallKey
-            // 
-            this.btnCallKey.Font = new System.Drawing.Font("굴림", 7F);
-            this.btnCallKey.Location = new System.Drawing.Point(243, 112);
-            this.btnCallKey.Name = "btnCallKey";
-            this.btnCallKey.Size = new System.Drawing.Size(55, 40);
-            this.btnCallKey.TabIndex = 6;
-            this.btnCallKey.Text = "인증 키 요청";
-            this.btnCallKey.UseVisualStyleBackColor = true;
+            this.textAuthCode.Font = new System.Drawing.Font("굴림", 15F);
+            this.textAuthCode.Location = new System.Drawing.Point(118, 20);
+            this.textAuthCode.Name = "textAuthCode";
+            this.textAuthCode.Size = new System.Drawing.Size(304, 36);
+            this.textAuthCode.TabIndex = 5;
             // 
             // btnAuthCancel
             // 
-            this.btnAuthCancel.Location = new System.Drawing.Point(16, 245);
+            this.btnAuthCancel.Location = new System.Drawing.Point(12, 69);
             this.btnAuthCancel.Name = "btnAuthCancel";
             this.btnAuthCancel.Size = new System.Drawing.Size(75, 23);
             this.btnAuthCancel.TabIndex = 7;
@@ -115,7 +64,7 @@
             // 
             // btnAuthOk
             // 
-            this.btnAuthOk.Location = new System.Drawing.Point(229, 245);
+            this.btnAuthOk.Location = new System.Drawing.Point(345, 69);
             this.btnAuthOk.Name = "btnAuthOk";
             this.btnAuthOk.Size = new System.Drawing.Size(86, 23);
             this.btnAuthOk.TabIndex = 8;
@@ -127,16 +76,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 280);
+            this.ClientSize = new System.Drawing.Size(452, 111);
             this.Controls.Add(this.btnAuthOk);
             this.Controls.Add(this.btnAuthCancel);
-            this.Controls.Add(this.btnCallKey);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textAuthCode);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.authID);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "cloudConnectAuth";
             this.Text = "Authentication";
             this.ResumeLayout(false);
@@ -145,14 +89,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox authID;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btnCallKey;
+        private System.Windows.Forms.TextBox textAuthCode;
         private System.Windows.Forms.Button btnAuthCancel;
         private System.Windows.Forms.Button btnAuthOk;
     }

@@ -118,7 +118,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LockSetting";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.lockPopup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

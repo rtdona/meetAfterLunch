@@ -13,7 +13,6 @@ using graduate.Resources;
 
 namespace graduate
 {
-    // 180801 15:30
     public partial class Form1 : Form
     {
         public Form1()
@@ -87,13 +86,16 @@ namespace graduate
 
         private void fileSearchBtnClick(object sender, EventArgs e) // 파일검색 버튼 클릭
         {
-
+            fileSearch searching = new fileSearch();
+            searching.ShowDialog();
         }
 
         /*--------------------스트립 메뉴 : 파일--------------------*/
         /*--------------------------------------------------------*/
 
-      
+
+        /*------------------------------------------------------*/
+        /*--------------------단축 버튼 메뉴--------------------*/
         private void viewSwitchBtnClick(object sender, EventArgs e) // 뷰전환 버튼 클릭 시, 뷰 전환 (detail <->LargeIcon)
         {
             if(this.listView1.View == View.Details)
@@ -114,6 +116,11 @@ namespace graduate
         }
 
         private void cloudSyncBtnClick(object sender, EventArgs e) // 클라우드 동기화 버튼 클릭
+        {
+
+        }
+
+        private void btnClassificationClick(object sender, EventArgs e) // 파일분류하기 버튼 클릭
         {
 
         }
@@ -144,7 +151,7 @@ namespace graduate
         private void PopulateTreeView()
         {
             TreeNode rootNode;
-            DirectoryInfo info = new DirectoryInfo(@"../../file_address");
+            DirectoryInfo info = new DirectoryInfo(@"../../root");
             // 현재 코드는 프로젝트 graduate 디렉토리 리스트를 보여줌
 
             // graduate의 하위폴더인 file_address로 탐색
@@ -209,10 +216,6 @@ namespace graduate
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
 
         private void treeAfterExpand(object sender, TreeViewEventArgs e)
         {
@@ -220,14 +223,112 @@ namespace graduate
             e.Node.SelectedImageIndex = 2;
         }
 
-    
+        private void 버전정보ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
-        /*---------------파일탐색기---------------*/
+        /*-------------------------------*/
+        /*-----------------툴팁-----------*/
+        private void btnCloudConnectMouseHover(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.SetToolTip(this.btnCloudConnect, "클라우드 연동하기");
+        }
+
+        private void btnCloudSyncMouseHover(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.SetToolTip(this.btnCloudSync, "클라우드 동기화");
+        }
+
+        private void btnFileUploadMouseHover(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.SetToolTip(this.btnFileUpload, "파일 업로드");
+        }
+
+        private void btnFileDownloadMouseHover(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.SetToolTip(this.btnFileDownload, "파일 다운로드");
+        }
+
+        private void btnFileSearchMouseHover(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.SetToolTip(this.btnFileSearch, "파일 검색");
+        }
+
+        private void btnViewSwitchMouseHover(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.SetToolTip(this.btnViewSwitch, "뷰 전환");
+        }
+
+        private void btnClassificationMousehover(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.SetToolTip(this.btnClassification, "전체 파일 분류하기");
+        }
+
+
+        /*-------------------------------------------*/
+        /*-------------리스트뷰 우클릭메뉴-------------*/
+        private void 파일분류하기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 파일다운로드ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 파일이름변경ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 파일복사ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 파일삭제ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewMouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                TreeNode tn = treeView1.GetNodeAt(e.Location);
+                treeView1.SelectedNode = tn;
+
+                this.listViewMenuStrip.Show(new Point(e.X, e.Y));
+            }
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        /*-------------리스트뷰 우클릭메뉴-------------*/
+        /*-------------------------------------------*/
+
+
+
+
+        /*---------------툴팁--------------------*/
         /*---------------------------------------*/
 
 
+
     }
-    
+
 }
  

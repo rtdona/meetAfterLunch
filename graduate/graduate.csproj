@@ -51,11 +51,23 @@
     <Compile Include="cloudConnect.Designer.cs">
       <DependentUpon>cloudConnect.cs</DependentUpon>
     </Compile>
+    <Compile Include="fileSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fileSearch.Designer.cs">
+      <DependentUpon>fileSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="helpForm.Designer.cs">
+      <DependentUpon>helpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="lockSetting.cs">
       <SubType>Form</SubType>
@@ -82,8 +94,14 @@
     <EmbeddedResource Include="cloudConnect.resx">
       <DependentUpon>cloudConnect.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fileSearch.resx">
+      <DependentUpon>fileSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="helpForm.resx">
+      <DependentUpon>helpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lockSetting.resx">
       <DependentUpon>lockSetting.cs</DependentUpon>
@@ -121,6 +139,7 @@
     <None Include="Resources\drive1.png" />
     <None Include="Resources\dropbox1.png" />
     <None Include="Resources\one-drive1.png" />
+    <None Include="Resources\nameSearch.png" />
     <Content Include="파일탐색기소스.txt" />
   </ItemGroup>
   <ItemGroup />
