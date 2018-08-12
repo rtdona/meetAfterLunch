@@ -101,6 +101,7 @@
     <Compile Include="AppClient\Dropbox\DropboxOperations.cs" />
     <Compile Include="AppClient\GoogleDrive\GoogleDriveInstance.cs" />
     <Compile Include="AppClient\GoogleDrive\GoogleDriveOperations.cs" />
+    <Compile Include="AppClient\MicroSoft\MicrosoftOperations.cs" />
     <Compile Include="AppClient\MicroSoft\MicroSoftInstance.cs" />
     <Compile Include="cloudConnect.cs">
       <SubType>Form</SubType>

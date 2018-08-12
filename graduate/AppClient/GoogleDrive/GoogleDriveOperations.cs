@@ -11,8 +11,8 @@ namespace graduate.AppClient.GoogleDrive
             request.Fields = "storageQuota";
             var response = await request.ExecuteAsync();
 
-            var used = response.StorageQuota.Usage;
-            var alloc = response.StorageQuota.Limit;
+            long used = response.StorageQuota.Usage ?? default(long);
+            long alloc = response.StorageQuota.Limit ?? default(long);
 
             return new SpaceQuota((ulong)used, (ulong)alloc);
         }
