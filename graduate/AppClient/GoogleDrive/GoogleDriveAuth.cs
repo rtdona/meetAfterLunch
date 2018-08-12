@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,12 +14,13 @@ using Google.Apis.Util.Store;
 /// NuGet 패키지 관리에서 검색해서 다운받거나 패키지 관리자 콘솔에서 다음을 실행
 /// Install-Package Google.Apis
 /// Install-Package Google.Apis.Auth
+/// Install-Package Google.Apis.Drive.v3
 /// </summary>
 
 
-namespace Unamed.Oauth2.GoogleDrive
+namespace graduate.AppClient.GoogleDrive
 {
-    class GoogleAuthHelper : IOAuthHelper<DriveService>
+    public partial class GoogleServiceClient : IAppClient
     {
 
         private static readonly string AppKey = "658192927213-ve20900gvm7to12k7n9iusl9kvqdf2pm.apps.googleusercontent.com";
@@ -32,11 +32,13 @@ namespace Unamed.Oauth2.GoogleDrive
         private static readonly string DataStoreKey = "Google.Auth";
         private static readonly string DataFolder = "Google.Auth";
 
-        private GoogleAuthorizationCodeFlow googleAuthcodeFlow;
+        private static GoogleAuthorizationCodeFlow googleAuthcodeFlow;
 
         private UserCredential credential;
 
-        public GoogleAuthHelper()
+        private DriveService service;
+
+        static GoogleServiceClient()
         {
             var initializer = new GoogleAuthorizationCodeFlow.Initializer
             {
@@ -53,43 +55,36 @@ namespace Unamed.Oauth2.GoogleDrive
             googleAuthcodeFlow = new GoogleAuthorizationCodeFlow(initializer);
         }
 
-        public void StartAuthCodeUri()
+        public Process StartAuthCodeUri()
         {
             var requestUrl = googleAuthcodeFlow.CreateAuthorizationCodeRequest(RedirectUri).Build();
 
-            System.Diagnostics.Process.Start(requestUrl.ToString());
-            
+            return Process.Start(requestUrl.ToString());
         }
 
-        public async Task GetAccessTokenAsync(string code)
+        public async Task CodeFlowGetAccessTokenAsync(string code)
         {
-            Google.Apis.Auth.OAuth2.Responses.TokenResponse token;
-            // load token datastore
-            try {
-                token = await googleAuthcodeFlow.LoadTokenAsync(DataStoreKey, CancellationToken.None);
-                await credential.RefreshTokenAsync(CancellationToken.None);
-            }
-            catch (Exception) {
-                // exchange code for token, after than automatically store
-                token = await googleAuthcodeFlow.ExchangeCodeForTokenAsync(DataStoreKey, code, RedirectUri, CancellationToken.None);
-            }
-            // token info
-            Console.WriteLine("Acess Token: " + token.AccessToken);
-            Console.WriteLine();
-            Console.WriteLine("Access Token Expiration (sec): " + token.ExpiresInSeconds);
-            Console.WriteLine();
-            // new credential
+            // exchange code for token, after than automatically store
+            var token = await googleAuthcodeFlow.ExchangeCodeForTokenAsync(DataStoreKey, code, RedirectUri, CancellationToken.None).ConfigureAwait(false);
             credential = new UserCredential(googleAuthcodeFlow, DataStoreKey, token);
         }
+        
 
-        public DriveService GetClient()
+        public async Task ConnectAsync()
         {
-            var service = new DriveService(new BaseClientService.Initializer()
+            try {
+                await credential.RefreshTokenAsync(CancellationToken.None).ConfigureAwait(false);
+            }
+            catch (NullReferenceException) {
+                var token = await googleAuthcodeFlow.LoadTokenAsync(DataStoreKey, CancellationToken.None).ConfigureAwait(false);
+                credential = new UserCredential(googleAuthcodeFlow, DataStoreKey, token);
+            }
+
+            service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
-                ApplicationName = "Drive API Sample",
+                ApplicationName = ProjectName
             });
-            return service;
         }
     }
 }

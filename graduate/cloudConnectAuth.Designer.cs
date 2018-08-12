@@ -46,10 +46,10 @@
             // 
             // textAuthCode
             // 
-            this.textAuthCode.Font = new System.Drawing.Font("굴림", 15F);
+            this.textAuthCode.Font = new System.Drawing.Font("돋움", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textAuthCode.Location = new System.Drawing.Point(118, 20);
             this.textAuthCode.Name = "textAuthCode";
-            this.textAuthCode.Size = new System.Drawing.Size(304, 36);
+            this.textAuthCode.Size = new System.Drawing.Size(304, 25);
             this.textAuthCode.TabIndex = 5;
             // 
             // btnAuthCancel

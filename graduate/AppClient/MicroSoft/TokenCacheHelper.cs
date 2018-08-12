@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Identity.Client;
 
-namespace Unamed.Oauth2.MicroSoft
+namespace graduate.AppClient.MicroSoft
 {
     static class TokenCacheHelper
     {
