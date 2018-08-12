@@ -10,5 +10,18 @@ namespace graduate.AppClient
         Process StartAuthCodeUri();
         Task    CodeFlowGetAccessTokenAsync(string code);
         Task    ConnectAsync();
+        Task<SpaceQuota> GetQuotaAsync();
+    }
+
+    public class SpaceQuota
+    {
+        public ulong Allocated { get; }
+        public ulong Used { get; }
+
+        public SpaceQuota (ulong used, ulong allocated)
+        {
+            this.Used = used;
+            this.Allocated = allocated;
+        }
     }
 }

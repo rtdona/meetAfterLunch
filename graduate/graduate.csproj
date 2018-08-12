@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="AppClient\CustomExceptions.cs" />
     <Compile Include="AppClient\Dropbox\DropboxInstance.cs" />
+    <Compile Include="AppClient\Dropbox\DropboxOperations.cs" />
     <Compile Include="AppClient\GoogleDrive\GoogleDriveInstance.cs" />
     <Compile Include="AppClient\MicroSoft\MicroSoftInstance.cs" />
     <Compile Include="cloudConnect.cs">
